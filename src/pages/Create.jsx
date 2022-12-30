@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     fontSize: 60,
     backgroundColor: "violet",
     "&:hover": {
-      background: "blue",
+      backgroundColor: "blue",
     },
   },
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 const Create = () => {
   const classes = useStyles();
   return (
-    <Container>
+    <Container size="sm">
       <Typography
         className={classes.title}
         variant="h6"
@@ -35,7 +35,7 @@ const Create = () => {
       <Button
         className={classes.btn}
         variant="contained"
-        color="primary"
+        color="secondary"
         type="submit"
         endIcon={<ArrowForwardIos />}
       >
