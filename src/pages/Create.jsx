@@ -1,9 +1,10 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Button, ButtonGroup, Container } from "@mui/material";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 const Create = () => {
   return (
-    <>
+    <Container>
       <Typography
         variant="h6"
         component="h2"
@@ -12,7 +13,23 @@ const Create = () => {
       >
         Create a New Note
       </Typography>
-      <Typography
+
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        endIcon={<ArrowForwardIos />}
+      >
+        Submit
+      </Button>
+
+      {/* <ButtonGroup color="secondary">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup> */}
+
+      {/* <Typography
         variant="h6"
         component="h2"
         color="textPrimary"
@@ -30,8 +47,8 @@ const Create = () => {
         eveniet aut perferendis minima laudantium, accusantium ad! Est nesciunt
         inventore, quasi tenetur odio ducimus quidem eveniet aperiam temporibus
         dicta consequatur voluptatem quod corporis.
-      </Typography>
-    </>
+      </Typography> */}
+    </Container>
   );
 };
 
