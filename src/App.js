@@ -6,13 +6,13 @@ import Notes from "./pages/Notes";
 
 function App() {
   return (
-    <div>
-      <Navigation />
+    <>
+      {/* <Navigation /> */}
       <Routes>
         <Route path="/create" element={<Create />} />
         <Route path="/notes" element={<Notes />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
