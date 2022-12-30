@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Button, ButtonGroup, Container } from "@mui/material";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 const Create = () => {
   return (
@@ -13,7 +14,12 @@ const Create = () => {
         Create a New Note
       </Typography>
 
-      <Button variant="contained" color="primary" type="submit">
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        endIcon={<ArrowForwardIos />}
+      >
         Submit
       </Button>
 
