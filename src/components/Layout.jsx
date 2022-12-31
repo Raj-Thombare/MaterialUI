@@ -8,6 +8,8 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  AppBar,
+  Toolbar,
 } from "@mui/material";
 
 import ThemeProvider from "@mui/material";
@@ -40,6 +42,14 @@ const useStyles = makeStyles((theme) => {
       // padding: 20,
       padding: theme.spacing(2),
     },
+    appBar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+    toolbar: theme.mixins.toolbar,
+    date: {
+      flexGrow: 1,
+    },
   };
 });
 
@@ -62,8 +72,22 @@ const Layout = ({ children }) => {
     },
   ];
 
+  const today = new Date().toUTCString().slice(5, 16);
+
   return (
     <div className={classes.root}>
+      <AppBar
+        position="fixed"
+        className={classes.appBar}
+        elevation={0}
+        color="primary"
+      >
+        <Toolbar>
+          <Typography className={classes.date}>{today}</Typography>
+          <Typography>Rakaa</Typography>
+        </Toolbar>
+      </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -89,7 +113,9 @@ const Layout = ({ children }) => {
           ))}
         </List>
       </Drawer>
+
       <div className={classes.page}>
+        <div className={classes.toolbar} />
         <div>{children}</div>
       </div>
     </div>
