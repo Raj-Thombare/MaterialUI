@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     marginBottom: 20,
     display: "block",
   },
+  inputForm: {
+    marginBottom: 30,
+  },
 });
 
 const Create = () => {
@@ -57,7 +60,12 @@ const Create = () => {
 
   return (
     <Container size="sm">
-      <form noValidate autoComplete="off" onSubmit={submitHandler}>
+      <form
+        noValidate
+        autoComplete="off"
+        onSubmit={submitHandler}
+        className={classes.inputForm}
+      >
         <Typography
           variant="h6"
           component="h2"
@@ -95,6 +103,7 @@ const Create = () => {
           variant="contained"
           color="primary"
           type="submit"
+          className={classes.btn}
           endIcon={<ArrowForwardIos />}
         >
           Submit
