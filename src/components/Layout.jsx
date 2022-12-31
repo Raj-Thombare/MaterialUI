@@ -10,27 +10,37 @@ import {
   ListItemText,
 } from "@mui/material";
 
+import ThemeProvider from "@mui/material";
+
 import { SubjectOutlined, AddCircleOutlineOutlined } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles({
-  page: {
-    background: "#f9f9f9",
-    width: "100%",
-  },
-  drawer: {
-    width: drawerWidth,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  root: {
-    display: "flex",
-  },
-  active: {
-    background: "#f9f9f9",
-  },
+const useStyles = makeStyles((theme) => {
+  return {
+    page: {
+      background: "#f9f9f9",
+      width: "100%",
+      // padding: 20,
+      padding: theme.spacing(3),
+    },
+    drawer: {
+      width: drawerWidth,
+    },
+    drawerPaper: {
+      width: drawerWidth,
+    },
+    root: {
+      display: "flex",
+    },
+    active: {
+      background: "#4f4f4",
+    },
+    title: {
+      // padding: 20,
+      padding: theme.spacing(2),
+    },
+  };
 });
 
 const Layout = ({ children }) => {
@@ -61,7 +71,9 @@ const Layout = ({ children }) => {
         classes={{ paper: classes.drawerPaper }}
       >
         <div>
-          <Typography variant="h5">Rakaa's Notes</Typography>
+          <Typography variant="h5" className={classes.title}>
+            Rakaa's Notes
+          </Typography>
         </div>
 
         <List>
