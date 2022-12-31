@@ -7,10 +7,23 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  test: {
+    border: (note) => {
+      if (note.category === "work") {
+        return "1px solid red";
+      }
+    },
+  },
+});
 
 const CardNotes = ({ note, onDelete }) => {
+  const classes = useStyles(note);
+
   return (
-    <Card>
+    <Card elevation={1} className={classes.test}>
       <CardHeader
         action={
           <IconButton onClick={() => onDelete(note.id)}>
