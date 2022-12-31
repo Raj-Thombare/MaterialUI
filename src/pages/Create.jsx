@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { Typography, Button, Container, TextField } from "@mui/material";
+import {
+  Typography,
+  Button,
+  Container,
+  TextField,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
+
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 const useStyles = makeStyles({
@@ -18,6 +29,7 @@ const Create = () => {
   const [details, setDetails] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+  const [category, setCategory] = useState("todos");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -78,6 +90,23 @@ const Create = () => {
           Submit
         </Button>
       </form>
+
+      <FormControl className={classes.field}>
+        <FormLabel>Note Catergory</FormLabel>
+        <RadioGroup
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <FormControlLabel value="money" control={<Radio />} label="Money" />
+          <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+          <FormControlLabel
+            value="reminder"
+            control={<Radio />}
+            label="Reminder"
+          />
+          <FormControlLabel value="work" control={<Radio />} label="Work" />
+        </RadioGroup>
+      </FormControl>
     </Container>
   );
 };
