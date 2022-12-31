@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
+import { useNavigate } from "react-router-dom";
 import {
   Typography,
   Button,
@@ -30,6 +31,7 @@ const Create = () => {
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState("todos");
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -42,6 +44,14 @@ const Create = () => {
 
     if (details === "") {
       setDetailsError(true);
+    }
+
+    if (title && details) {
+      fetch("http://localhost:8000/notes", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ title, details, category }),
+      }).then(() => navigate("/notes"));
     }
   };
 
