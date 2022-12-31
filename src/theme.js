@@ -13,4 +13,11 @@ export const theme = createTheme({
       main: "#07ffc1",
     },
   },
+  typography: {
+    fontFamily: "Quicksand",
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  },
 });
