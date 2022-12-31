@@ -1,18 +1,30 @@
 import React from "react";
-import { Card, CardHeader, CardContent, IconButton } from "@mui/material";
+import {
+  Card,
+  CardHeader,
+  IconButton,
+  CardContent,
+  Typography,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const CardNotes = ({ note }) => {
+const CardNotes = ({ note, onDelete }) => {
   return (
     <Card>
       <CardHeader
         action={
-          <IconButton>
+          <IconButton onClick={() => onDelete(note.id)}>
             <DeleteIcon />
           </IconButton>
         }
+        title={note.title}
+        subheader={note.category}
       />
-      {note}
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          {note.details}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };

@@ -11,12 +11,21 @@ const Notes = () => {
       .then((data) => setNotes(data));
   }, []);
 
+  const deleteNoteHandler = (id) => {
+    fetch("http://localhost:8000/notes/" + id, {
+      method: "DELETE",
+    });
+
+    const newNotes = notes.filter((note) => note.id != id);
+    setNotes(newNotes);
+  };
+
   return (
     <Container>
       <Grid container spacing={3}>
         {notes.map((note) => (
           <Grid item key={note.id} xs={12} md={6} lg={3}>
-            <CardNotes note={note.title} />
+            <CardNotes note={note} onDelete={deleteNoteHandler} />
           </Grid>
         ))}
       </Grid>
