@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router";
-
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
 import Create from "./pages/Create";
 import Notes from "./pages/Notes";
 
