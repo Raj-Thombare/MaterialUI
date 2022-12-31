@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import {
   Typography,
@@ -28,10 +28,15 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
   },
+  active: {
+    background: "#f9f9f9",
+  },
 });
 
 const Layout = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const classes = useStyles();
 
   const menuItems = [
@@ -62,9 +67,9 @@ const Layout = ({ children }) => {
         <List>
           {menuItems.map((item) => (
             <ListItemButton
-              button
               key={item.text}
               onClick={() => navigate(item.path)}
+              className={location.pathname == item.path ? classes.active : null}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
