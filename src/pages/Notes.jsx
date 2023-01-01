@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Paper, Container } from "@mui/material";
+import { Grid, Container } from "@mui/material";
+import Masonry from "@mui/lab/Masonry";
 import CardNotes from "../components/CardNotes";
 
 const Notes = () => {
@@ -22,13 +23,13 @@ const Notes = () => {
 
   return (
     <Container>
-      <Grid container spacing={3}>
+      <Masonry columns={4} spacing={2}>
         {notes.map((note) => (
-          <Grid item key={note.id} xs={12} md={6} lg={3}>
+          <div>
             <CardNotes note={note} onDelete={deleteNoteHandler} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </Masonry>
     </Container>
   );
 };
