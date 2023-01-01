@@ -12,8 +12,6 @@ import {
   Toolbar,
 } from "@mui/material";
 
-import ThemeProvider from "@mui/material";
-
 import { SubjectOutlined, AddCircleOutlineOutlined } from "@mui/icons-material";
 
 const drawerWidth = 240;
@@ -79,6 +77,10 @@ const Layout = ({ children }) => {
       <AppBar
         position="fixed"
         className={classes.appBar}
+        sx={{
+          width: `calc(100% - ${drawerWidth}px)`,
+          marginLeft: drawerWidth,
+        }}
         elevation={0}
         color="primary"
       >
