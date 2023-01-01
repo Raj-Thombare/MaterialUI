@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
     },
     active: {
-      background: "#4f4f4",
+      background: "#f4f4f4",
     },
     title: {
       // padding: 20,
@@ -107,7 +107,9 @@ const Layout = ({ children }) => {
             <ListItemButton
               key={item.text}
               onClick={() => navigate(item.path)}
-              className={location.pathname == item.path ? classes.active : null}
+              className={
+                location.pathname === item.path ? classes.active : null
+              }
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
